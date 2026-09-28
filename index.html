@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Patterns Mastery</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Highlight.js for code formatting -->
+    <link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    
+    <!-- Mermaid.js for UML diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Drawer -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="brand" id="brand-home" style="cursor: pointer;" title="Back to overview">
+                    <span class="brand-icon">🎯</span>
+                    <span class="brand-text">Patterns</span>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+                    <button class="icon-btn mobile-close" id="mobile-close" aria-label="Close menu">✕</button>
+                </div>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search patterns..." aria-label="Search patterns">
+            </div>
+            
+            <div class="sidebar-nav" id="sidebar-nav">
+                <!-- Categories rendered here -->
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="mobile-header">
+                <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">☰</button>
+                <div class="mobile-brand" id="mobile-brand-home" style="cursor: pointer;">🎯 Design Patterns</div>
+                <div style="width: 32px;"></div> <!-- Spacer for flex centering -->
+            </header>
+            
+            <div class="content-container" id="content-container">
+                <!-- Welcome Screen or Pattern Detail rendered here -->
+            </div>
+            
+            <!-- Floating Action Button for Quick Recall -->
+            <button class="recall-fab" id="recall-fab" aria-label="Quick Recall" style="display: none;">
+                <span class="fab-icon">🧠</span>
+                <span class="fab-tooltip">Quick Recall</span>
+            </button>
+        </main>
+    </div>
+
+    <!-- Quick Recall Modal -->
+    <div class="modal-backdrop" id="recall-modal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal">✕</button>
+            <div class="modal-content" id="modal-content">
+                <!-- Recall content rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Data must load before app logic -->
+    <script src="data.js"></script>
+    <script>
+        // Fallback if data.js is missing
+        if (!window.DESIGN_PATTERNS) {
+            window.DESIGN_PATTERNS = [];
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
